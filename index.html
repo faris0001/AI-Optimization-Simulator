@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Optimization Simulator</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>AI Optimization Simulator</h1>
+        <p class="subtitle">
+            Comparison of Hill Climbing, Simulated Annealing, and Genetic Algorithm
+        </p>
+
+        <!-- CONTROL PANEL -->
+        <div class="card">
+
+            <h2>Simulation Settings</h2>
+
+            <div class="form-group">
+
+                <label>Algorithm</label>
+
+                <select id="algorithm">
+                    <option value="hill">Hill Climbing</option>
+                    <option value="sa">Simulated Annealing</option>
+                    <option value="ga">Genetic Algorithm</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+                <label>Iterations</label>
+                <input type="number" id="iterations" value="100">
+            </div>
+
+            <div class="form-group">
+                <label>Population Size (GA)</label>
+                <input type="number" id="population" value="50">
+            </div>
+
+            <div class="form-group">
+                <label>Mutation Rate (GA)</label>
+                <input type="number" id="mutation"
+                       value="0.05"
+                       step="0.01">
+            </div>
+
+            <div class="form-group">
+                <label>Initial Temperature (SA)</label>
+                <input type="number" id="temperature"
+                       value="100">
+            </div>
+
+            <div class="form-group">
+                <label>Cooling Rate (SA)</label>
+                <input type="number" id="cooling"
+                       value="0.95"
+                       step="0.01">
+            </div>
+
+            <button id="runBtn">
+                Run Simulation
+            </button>
+
+        </div>
+
+        <!-- RESULT -->
+        <div class="card">
+
+            <h2>Optimization Result</h2>
+
+            <div class="result-grid">
+
+                <div class="result-box">
+                    <h3>Best Fitness</h3>
+                    <p id="fitness">-</p>
+                </div>
+
+                <div class="result-box">
+                    <h3>Best X</h3>
+                    <p id="bestX">-</p>
+                </div>
+
+                <div class="result-box">
+                    <h3>Best Y</h3>
+                    <p id="bestY">-</p>
+                </div>
+
+                <div class="result-box">
+                    <h3>Execution Time</h3>
+                    <p id="executionTime">-</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- CHART -->
+        <div class="card">
+
+            <h2>Convergence Graph</h2>
+
+            <canvas id="fitnessChart"></canvas>
+
+        </div>
+
+    </div>
+
+    <script src="js/rastrigin.js"></script>
+    <script src="js/hillClimbing.js"></script>
+    <script src="js/simulatedAnnealing.js"></script>
+    <script src="js/geneticAlgorithm.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
